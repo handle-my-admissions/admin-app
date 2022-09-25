@@ -6,7 +6,6 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../../contexts/user';
 import './style.css';
-import { AppHeader } from '../../components';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -29,8 +28,6 @@ export default function Login() {
   };
 
   return (
-    <>
-      <AppHeader />
       <section className="login-showcase">
         <img src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="..." />
         <div className="login-container">
@@ -89,6 +86,5 @@ export default function Login() {
           </Form>
         </div>
       </section>
-    </>
   );
 }
