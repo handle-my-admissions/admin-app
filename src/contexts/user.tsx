@@ -3,12 +3,25 @@ import React from 'react';
 import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
 import Pool from '../UserPool';
 
-export const UserContext = React.createContext({
-    user: undefined,
-    setUser: (user: any) => {},
-    authenticate: (Username: string, Password: string) => {},
-    logout: () => {},
-  });
+// {
+//   user: undefined,
+//   setUser: (user: any) => {},
+//   authenticate: (Username: string, Password: string) => Promise,
+//   logout: () => {},
+// }
+type userContextType = {
+  user: any,
+  setUser: (user: any) => void,
+  authenticate: (Username: string, Password: string) => Promise<any>,
+  logout: () => void,
+}
+
+export const UserContext = React.createContext<userContextType>({
+  user: undefined,
+  setUser: (user: any) => {},
+  authenticate: (Username: string, Password: string) => new Promise((resolve, reject) => {}),
+  logout: () => {},
+});
 
 const authenticate = async (Username:string, Password:string) => new Promise((resolve, reject) => {
   const user = new CognitoUser({ Username, Pool });

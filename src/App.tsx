@@ -2,7 +2,7 @@ import './App.css';
 import {
   BrowserRouter, Route, Routes,
 } from 'react-router-dom';
-import { Landing } from './pages';
+import { Landing, Login } from './pages';
 import { UserContextProvider } from './contexts/user';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
       <UserContextProvider>
         <Routes>
           <Route path='/' element={<Landing />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
 
       </UserContextProvider>
