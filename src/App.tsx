@@ -13,6 +13,7 @@ import { PrivateRoute } from './utils/PrivateRoute';
 import { useContext } from 'react';
 import CalendarPage from './pages/CalendarPage';
 import Applications from './pages/Applications';
+import SingleApplication from './pages/SingleApplication';
 
 const { Content } = Layout;
 
@@ -35,7 +36,7 @@ function App() {
           <Layout className="site-layout">
             <AppSider data={siderData} haveSubMenu isCollapsible />
             <Layout style={{ minHeight: '100vh' }}>
-              <Content style={ { margin: '0 4px' }}>
+              <Content style={{ margin: '0 4px' }}>
                 <Routes>
                   <Route path='/' element={<Landing />} />
                   <Route path='login' element={<Login />} />
@@ -48,7 +49,7 @@ function App() {
 
                   <Route path='adm/applications' element={
                     <PrivateRoute>
-                      <Applications/>
+                      <Applications />
                     </PrivateRoute>
                   } />
                   <Route path='adm/calendar' element={
@@ -57,6 +58,11 @@ function App() {
                     </PrivateRoute>
                   } />
 
+                  <Route path='adm/applications/:ApplicationId' element={
+                    <PrivateRoute>
+                      <SingleApplication />
+                    </PrivateRoute>
+                  } />
                 </Routes>
               </Content>
             </Layout>

@@ -12,8 +12,12 @@ type customTablePropType = {
     name:string,
     branch:string,
     institute:string,
-    feesPaid:string,
-    address:string
+    feesPaid?:string,
+    address:string,
+    applicationid?:string,
+    email?:string,
+    marks?:string,
+
   }[],
   customTableColumnsData:{
     title:string,
