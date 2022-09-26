@@ -6,3 +6,4 @@ export {default as PageHeader} from './PageHeader';
 export {default as CustomTable} from './CustomTable';
 export { default as UpTrend } from './UpTrend';
 export { default as DownTrend } from './DownTrend';
+export { default as Calendar } from './Calendar';

@@ -11,6 +11,7 @@ import {
 } from '@ant-design/icons';
 import { PrivateRoute } from './utils/PrivateRoute';
 import { useContext } from 'react';
+import CalendarPage from './pages/CalendarPage';
 
 const { Content } = Layout;
 
@@ -31,9 +32,9 @@ function App() {
           <AppHeader />
 
           <Layout className="site-layout">
-             <AppSider data={siderData} haveSubMenu isCollapsible />
+            <AppSider data={siderData} haveSubMenu isCollapsible />
             <Layout style={{ minHeight: '100vh' }}>
-              <Content style={user?{ margin: '0 16px' }:{}}>
+              <Content style={ { margin: '0 4px' }}>
                 <Routes>
                   <Route path='/' element={<Landing />} />
                   <Route path='login' element={<Login />} />
@@ -43,6 +44,13 @@ function App() {
                       <Dashboard />
                     </PrivateRoute>
                   } />
+
+                  <Route path='adm/calendar' element={
+                    <PrivateRoute>
+                      <CalendarPage />
+                    </PrivateRoute>
+                  } />
+
                 </Routes>
               </Content>
             </Layout>
