@@ -12,6 +12,7 @@ import {
 import { PrivateRoute } from './utils/PrivateRoute';
 import { useContext } from 'react';
 import CalendarPage from './pages/CalendarPage';
+import Applications from './pages/Applications';
 
 const { Content } = Layout;
 
@@ -45,6 +46,11 @@ function App() {
                     </PrivateRoute>
                   } />
 
+                  <Route path='adm/applications' element={
+                    <PrivateRoute>
+                      <Applications/>
+                    </PrivateRoute>
+                  } />
                   <Route path='adm/calendar' element={
                     <PrivateRoute>
                       <CalendarPage />

@@ -1,0 +1,55 @@
+.GenerateApplication input[type=text] {
+    width: 100%;
+    padding: 0.6em;
+    margin-top: 0.6em;
+    border: none;
+    border-bottom: 1px solid grey;
+    box-sizing: border-box;
+}
+
+.GenerateApplication input[type=text]:focus,
+.GenerateApplication input[type=number]:focus {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+
+.GenerateApplication input::-webkit-outer-spin-button, .GenerateApplication input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    padding: 0.6em;
+    margin-top: 0.6em;
+    border: none;
+    border-bottom: 1px solid grey;
+    box-sizing: border-box;
+}
+
+/* Firefox */
+
+.GenerateApplication input[type=number] {
+    -moz-appearance: textfield;
+    padding: 0.6em;
+    margin-top: 0.6em;
+    border: none;
+    border-bottom: 1px solid grey;
+    box-sizing: border-box;
+}
+
+.Application_btn_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.Application_btn_container input[type=submit] {
+    margin-top: 0.7em;
+    margin-right: 0.4em;
+    padding: 0.6em 1em;
+    background-color: rgba(0, 140, 255, 0.637);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0.2em;
+}

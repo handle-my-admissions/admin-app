@@ -1,0 +1,15 @@
+.GenerateApplication_Given_Options,
+.GenerateApplication_Selected_Options {
+    min-height: 19vh;
+    border: 1px solid rgb(141, 141, 141);
+    padding: 0.7em;
+    border-radius: 0.6em;
+    margin: 0 0.5em;
+}
+
+.ant-tag {
+    height: 2.4em;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin: 0.2em 0.45em;
+}
