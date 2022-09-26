@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import {
   Row, Col, Tag, Typography,
@@ -46,6 +46,7 @@ export default function SelectFieldSection({
 
   // Fields/Label in the pool will be stored in GivenFields
   const [GivenFields, setGivenFields] = useState(Labels);
+
 
   const handleOnDragEnd = (result: any) => {
     // if dropped outside the droppable area

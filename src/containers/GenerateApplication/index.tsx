@@ -66,6 +66,7 @@ export default function GenerateApplication() {
 
           // Reset form after submission
           setApplicationData(ApplicationInitialState);
+          setGlobalLabels(GlobalInitialState);
         } else {
           notification.open({
             message: 'Please try Again !',

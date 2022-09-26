@@ -23,7 +23,8 @@ type customTablePropType = {
     title:string,
     dataIndex:string,
     key: string,
-    responsive: any[],
+    responsive?: any[],
+    fixed?: string,
     sorter?: (a:any,b:any)=>number,
     sortDirections?:string[]
   }[]

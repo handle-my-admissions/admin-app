@@ -2,7 +2,7 @@ import './App.css';
 import {
   BrowserRouter, Navigate, Route, Routes,
 } from 'react-router-dom';
-import { Dashboard, Landing, Login, SignUp } from './pages';
+import { Applications, CalendarPage, Dashboard, Landing, Login, Queries, SignUp, SingleApplication } from './pages';
 import { UserContext, UserContextProvider } from './contexts/user';
 import { Layout } from 'antd';
 import { AppHeader, AppSider } from './components';
@@ -11,9 +11,8 @@ import {
 } from '@ant-design/icons';
 import { PrivateRoute } from './utils/PrivateRoute';
 import { useContext } from 'react';
-import CalendarPage from './pages/CalendarPage';
-import Applications from './pages/Applications';
-import SingleApplication from './pages/SingleApplication';
+import Notices from './pages/Notices';
+
 
 const { Content } = Layout;
 
@@ -52,17 +51,32 @@ function App() {
                       <Applications />
                     </PrivateRoute>
                   } />
-                  <Route path='adm/calendar' element={
-                    <PrivateRoute>
-                      <CalendarPage />
-                    </PrivateRoute>
-                  } />
 
                   <Route path='adm/applications/:ApplicationId' element={
                     <PrivateRoute>
                       <SingleApplication />
                     </PrivateRoute>
                   } />
+
+                  <Route path='adm/calendar' element={
+                    <PrivateRoute>
+                      <CalendarPage />
+                    </PrivateRoute>
+                  } />
+
+                  <Route path="adm/queries" element={
+                    <PrivateRoute>
+                      <Queries />
+                    </PrivateRoute>
+                  } />
+
+                  <Route path="adm/notices" element={
+                    <PrivateRoute>
+                      <Notices />
+                    </PrivateRoute>
+                  } />
+
+                  <Route path='*' element={<Navigate to='adm' />} />
                 </Routes>
               </Content>
             </Layout>

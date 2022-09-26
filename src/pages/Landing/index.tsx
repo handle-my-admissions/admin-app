@@ -1,14 +1,16 @@
 import './style.css';
 
-import { useNavigate } from 'react-router-dom';
-import { AppHeader } from '../../components';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/user';
+
 
 export default function Landing() {
   const navigate = useNavigate();
-  // let hostedUI;
-  // if (!(window.location.href[(window.location.href).length - 1] === '/')) {
-  //   hostedUI = `https://handlemyadmissionsforadmin.auth.us-east-1.amazoncognito.com/login?client_id=7pcvc94m5cq87qbdkpdlj40qho&response_type=token&scope=email+phone+openid+aws.cognito.signin.user.admin+profile&redirect_uri=${window.location.href}/interm`;
-  // }
+  const {user} =useContext(UserContext);
+
+  if(user) return <Navigate to="adm/" />
+  
   return (
     <div className="Landing">
       <section className="showcase">
