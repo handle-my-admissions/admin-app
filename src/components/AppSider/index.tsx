@@ -8,12 +8,13 @@
  * Written By : Tejas Ladhani
  */
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NotificationOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
 import './style.css';
+import { UserContext } from '../../contexts/user';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -25,11 +26,16 @@ type appSiderPropType = {
 }
 function AppSider({ data, haveSubMenu, isCollapsible }:appSiderPropType) {
   const [collapsed, setCollapsed] = useState(false);
+  const {user} = useContext(UserContext);
   let keyCounter = 1;
   const onCollapse = (collapseState:boolean) => {
     setCollapsed(collapseState);
   };
 
+  if(user == undefined){
+    return <></>;
+  }
+  
   return (
     <Sider
       width={210}
