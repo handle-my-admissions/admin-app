@@ -1,17 +1,13 @@
 import './App.css'
-import {
-  BrowserRouter, Navigate, Route, Routes
-} from 'react-router-dom'
-import { Applications, CalendarPage, Dashboard, Landing, Login, Queries, SignUp, SingleApplication } from './pages'
+import { BrowserRouter } from 'react-router-dom'
 import { UserContextProvider } from './contexts/user'
 import { Layout } from 'antd'
 import { AppHeader, AppSider } from './components'
 import {
   ProfileOutlined, PieChartOutlined, CalendarOutlined, QuestionOutlined, PaperClipOutlined
 } from '@ant-design/icons'
-import { PrivateRoute } from './utils/PrivateRoute'
 import React from 'react'
-import Notices from './pages/Notices'
+import { Routes } from './routes'
 
 const { Content } = Layout
 
@@ -27,58 +23,16 @@ function App (): JSX.Element {
   return (
     <BrowserRouter basename='/ap-admin'>
       <UserContextProvider>
+
         <Layout style={{ minHeight: '100vh' }}>
           <AppHeader />
-
           <Layout className="site-layout">
             <AppSider data={siderData} haveSubMenu isCollapsible />
             <Layout style={{ minHeight: '100vh' }}>
               <Content style={{ margin: '0 4px' }}>
-                <Routes>
-                  <Route path='/' element={<Landing />} />
-                  <Route path='login' element={<Login />} />
-                  <Route path='signup' element={<SignUp />} />
-                  <Route path='adm' element={
-                    <PrivateRoute>
-                      <Dashboard />
-                    </PrivateRoute>
-                  } />
-
-                  <Route path='adm/applications' element={
-                    <PrivateRoute>
-                      <Applications />
-                    </PrivateRoute>
-                  } />
-
-                  <Route path='adm/applications/:ApplicationId' element={
-                    <PrivateRoute>
-                      <SingleApplication />
-                    </PrivateRoute>
-                  } />
-
-                  <Route path='adm/calendar' element={
-                    <PrivateRoute>
-                      <CalendarPage />
-                    </PrivateRoute>
-                  } />
-
-                  <Route path="adm/queries" element={
-                    <PrivateRoute>
-                      <Queries />
-                    </PrivateRoute>
-                  } />
-
-                  <Route path="adm/notices" element={
-                    <PrivateRoute>
-                      <Notices />
-                    </PrivateRoute>
-                  } />
-
-                  <Route path='*' element={<Navigate to='adm' />} />
-                </Routes>
+                <Routes />
               </Content>
             </Layout>
-
           </Layout>
         </Layout>
 

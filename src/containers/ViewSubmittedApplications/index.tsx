@@ -10,7 +10,7 @@ export default function ViewSubmittedApplications (): JSX.Element {
   useEffect(() => {
     const config = {
       method: 'get',
-      url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/get_submitted_applicaitons?id=APP-MSCMSC831',
+      url: `${process.env.REACT_APP_API_GATEWAY_BASE_URL}/get_submitted_applicaitons?id=APP-MSCMSC831`,
       headers: {
         Authorization: `Bearer ${user.idToken.jwtToken}`
       }

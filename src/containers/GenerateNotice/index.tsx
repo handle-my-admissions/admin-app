@@ -34,7 +34,7 @@ export default function GenerateNotice ({ tempState, settempState }: generateNot
 
     const config = {
       method: 'post',
-      url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/notices',
+      url: `${process.env.REACT_APP_API_GATEWAY_BASE_URL}/notices`,
       headers: {
         Authorization: `Bearer ${user.idToken.jwtToken}`,
         'Content-Type': 'application/json'

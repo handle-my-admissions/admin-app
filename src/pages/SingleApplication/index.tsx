@@ -25,7 +25,7 @@ export default function SingleApplication (): JSX.Element {
 
     const config = {
       method: 'put',
-      url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/applications',
+      url: `${process.env.REACT_APP_API_GATEWAY_BASE_URL}/applications`,
       headers: {
         Authorization: `Bearer ${user.idToken.jwtToken}`,
         'Content-Type': 'application/json'
