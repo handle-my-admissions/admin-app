@@ -23,7 +23,7 @@ export default function Queries (): JSX.Element {
     // TODO : here the data is of specific student , we need all queries. make new lambda /API EP
     const config = {
       method: 'get',
-      url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/queries/',
+      url: `${process.env.REACT_APP_API_GATEWAY_BASE_URL}/queries/`,
       headers: {
         Authorization: `Bearer ${user.idToken.jwtToken}`
 
