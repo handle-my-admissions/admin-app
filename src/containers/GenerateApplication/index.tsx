@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
-import { notification } from 'antd';
-import axios from 'axios';
-import { UserContext } from '../../contexts/user';
-import { PageHeader, SelectFields } from '../../components';
-import './style.css';
+import React, { useState, useContext } from 'react'
+import { notification } from 'antd'
+import axios from 'axios'
+import { UserContext } from '../../contexts/user'
+import { PageHeader, SelectFields } from '../../components'
+import './style.css'
 
 // Following are the initial templates for our states
 const ApplicationInitialState = {
@@ -14,44 +14,44 @@ const ApplicationInitialState = {
   stream: '',
   fees: 1000,
   lastDate: '',
-  submittedApplications: [],
-};
+  submittedApplications: []
+}
 const GlobalInitialState = {
   'Personal Details': [],
   'Ed-Level Details': [],
   'Education/School Details': [],
   'Entrance Exam': [],
   'Document Uploads': [],
-  'Payment Modes': [],
-};
-export default function GenerateApplication() {
-  const [ApplicationData, setApplicationData] = useState(ApplicationInitialState);
-  const [GlobalLabels, setGlobalLabels] = useState(GlobalInitialState);
-  const { user } = useContext(UserContext);
+  'Payment Modes': []
+}
+export default function GenerateApplication (): JSX.Element {
+  const [ApplicationData, setApplicationData] = useState(ApplicationInitialState)
+  const [GlobalLabels, setGlobalLabels] = useState(GlobalInitialState)
+  const { user } = useContext(UserContext)
 
-  const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
 
-    let temp;
-    temp = Array.from(ApplicationData.title);
-    temp = `APP-${temp[0]}${temp[1]}${temp[2]}${temp[temp.length - 3]}${temp[temp.length - 2]}${temp[temp.length - 1]}${Math.floor(Math.random() * 1000)}`;
+    let temp
+    temp = Array.from(ApplicationData.title)
+    temp = `APP-${temp[0]}${temp[1]}${temp[2]}${temp[temp.length - 3]}${temp[temp.length - 2]}${temp[temp.length - 1]}${Math.floor(Math.random() * 1000)}`
 
     //! API CALL HERE
     const data = JSON.stringify({
       ...ApplicationData,
       GlobalLabels,
-      ApplicationID: `${temp}`,
-    });
+      ApplicationID: `${temp}`
+    })
 
     const config = {
       method: 'post',
       url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/applications',
       headers: {
         Authorization: `Bearer ${user.idToken.jwtToken}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      data,
-    };
+      data
+    }
 
     axios(config)
       .then((response) => {
@@ -61,22 +61,22 @@ export default function GenerateApplication() {
           notification.open({
             message: 'Application Generated !',
             description:
-                            'Application Generated Successfully. To view te generated application move to view application tab.',
-          });
+                            'Application Generated Successfully. To view te generated application move to view application tab.'
+          })
 
           // Reset form after submission
-          setApplicationData(ApplicationInitialState);
-          setGlobalLabels(GlobalInitialState);
+          setApplicationData(ApplicationInitialState)
+          setGlobalLabels(GlobalInitialState)
         } else {
           notification.open({
-            message: 'Please try Again !',
-          });
+            message: 'Please try Again !'
+          })
         }
       })
       .catch((error) => {
-        console.error(error);
-      });
-  };
+        console.error(error)
+      })
+  }
 
   return (
     <div className="GenerateApplication">
@@ -88,7 +88,7 @@ export default function GenerateApplication() {
           name="title"
           placeholder="Enter Title"
           value={ApplicationData.title}
-          onChange={(e) => { setApplicationData({ ...ApplicationData, title: e.target.value }); }}
+          onChange={(e) => { setApplicationData({ ...ApplicationData, title: e.target.value }) }}
           required
         />
 
@@ -99,7 +99,7 @@ export default function GenerateApplication() {
           placeholder="Enter Description Here"
           value={ApplicationData.description}
           onChange={(e) => {
-            setApplicationData({ ...ApplicationData, description: e.target.value });
+            setApplicationData({ ...ApplicationData, description: e.target.value })
           }}
           required
         />
@@ -110,7 +110,7 @@ export default function GenerateApplication() {
           name="Branch"
           placeholder="For Branch"
           value={ApplicationData.branch}
-          onChange={(e) => { setApplicationData({ ...ApplicationData, branch: e.target.value }); }}
+          onChange={(e) => { setApplicationData({ ...ApplicationData, branch: e.target.value }) }}
           required
         />
 
@@ -120,7 +120,7 @@ export default function GenerateApplication() {
           name="stream"
           placeholder="For stream"
           value={ApplicationData.stream}
-          onChange={(e) => { setApplicationData({ ...ApplicationData, stream: e.target.value }); }}
+          onChange={(e) => { setApplicationData({ ...ApplicationData, stream: e.target.value }) }}
           required
         />
 
@@ -131,7 +131,7 @@ export default function GenerateApplication() {
           name="Fees"
           placeholder="Registration Fees"
           value={ApplicationData.fees}
-          onChange={(e) => { setApplicationData({ ...ApplicationData, fees: Number(e.target.value) }); }}
+          onChange={(e) => { setApplicationData({ ...ApplicationData, fees: Number(e.target.value) }) }}
           required
         />
 
@@ -146,7 +146,7 @@ export default function GenerateApplication() {
               style={{ marginLeft: '0.5em' }}
               value={ApplicationData.lastDate}
               onChange={(e) => {
-                setApplicationData({ ...ApplicationData, lastDate: e.target.value });
+                setApplicationData({ ...ApplicationData, lastDate: e.target.value })
               }}
               required
             />
@@ -159,5 +159,5 @@ export default function GenerateApplication() {
         </div>
       </form>
     </div>
-  );
+  )
 }

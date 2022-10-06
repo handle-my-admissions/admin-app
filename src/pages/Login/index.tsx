@@ -1,31 +1,31 @@
 import {
-  Button, Form, Input, message,
-} from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import React, { useContext, useEffect } from 'react';
-import { UserContext } from '../../contexts/user';
-import './style.css';
+  Button, Form, Input, message
+} from 'antd'
+import { Link, useNavigate } from 'react-router-dom'
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import React, { useContext, useEffect } from 'react'
+import { UserContext } from '../../contexts/user'
+import './style.css'
 
-export default function Login() {
-  const navigate = useNavigate();
-  const { authenticate, user, setUser } = useContext(UserContext);
+export default function Login (): JSX.Element {
+  const navigate = useNavigate()
+  const { authenticate, user, setUser } = useContext(UserContext)
   useEffect(() => {
     if (user) {
-      navigate('/adm/');
+      navigate('/adm/')
     }
-  }, []);
+  }, [])
 
-  const onFinish = (values:{email:string,password:string}) => {
+  const onFinish = (values: { email: string, password: string }): void => {
     authenticate(values.email, values.password)
-      .then((data:Response) => {
-        setUser(data);
-        navigate('/adm/');
+      .then((data: Response) => {
+        setUser(data)
+        navigate('/adm/')
       })
       .catch((err: Error) => {
-        message.error(err['message']);
-      });
-  };
+        message.error(err.message)
+      })
+  }
 
   return (
       <section className="login-showcase">
@@ -34,7 +34,7 @@ export default function Login() {
           <Form
             name="normal_login"
             initialValues={{
-              remember: true,
+              remember: true
             }}
             onFinish={onFinish}
           >
@@ -43,12 +43,12 @@ export default function Login() {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your email!',
+                  message: 'Please input your email!'
                 },
                 {
                   type: 'email',
-                  message: 'Please input a valid email!',
-                },
+                  message: 'Please input a valid email!'
+                }
               ]}
             >
               <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
@@ -58,8 +58,8 @@ export default function Login() {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your Password!',
-                },
+                  message: 'Please input your Password!'
+                }
               ]}
             >
               <Input
@@ -86,5 +86,5 @@ export default function Login() {
           </Form>
         </div>
       </section>
-  );
+  )
 }

@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
-  Row, Col, Typography, Button,
-} from 'antd';
-import SelectFieldSection from '../SelectFieldSection';
-import './style.css';
+  Row, Col, Typography, Button
+} from 'antd'
+import SelectFieldSection from '../SelectFieldSection'
+import './style.css'
 
-type selectFieldsPropType ={
-  GlobalLabels:{
-    'Personal Details': {}[],
-    'Ed-Level Details': {}[],
-    'Education/School Details': {}[],
-    'Entrance Exam': {}[],
-    'Document Uploads': {}[],
-    'Payment Modes': {}[],
-  },
-  setGlobalLabels : React.Dispatch<React.SetStateAction<any>>
+interface selectFieldsPropType {
+  GlobalLabels: {
+    'Personal Details': Array<{}>
+    'Ed-Level Details': Array<{}>
+    'Education/School Details': Array<{}>
+    'Entrance Exam': Array<{}>
+    'Document Uploads': Array<{}>
+    'Payment Modes': Array<{}>
+  }
+  setGlobalLabels: React.Dispatch<React.SetStateAction<any>>
 }
 
 // are the given labels , add the labels in future , if required
@@ -26,81 +26,81 @@ const data = [
         title: 'First Name',
         type: 'text',
         index: 1,
-        value: '',
+        value: ''
       },
       {
         title: 'Last Name',
         type: 'text',
         index: 2,
-        value: '',
+        value: ''
       },
       {
         title: 'Address',
         type: 'text',
         index: 3,
-        value: '',
+        value: ''
       },
       {
         title: 'Phone no.',
         type: 'number',
         index: 4,
-        value: '',
+        value: ''
       },
       {
         title: "Guardian's Name",
         type: 'text',
         index: 5,
-        value: '',
+        value: ''
       },
       {
         title: "Guardian's Phone Number",
         type: 'number',
         index: 6,
-        value: '',
+        value: ''
       },
       {
         title: 'Gender',
         type: 'option',
         index: 7,
-        value: '',
+        value: ''
       },
       {
         title: 'Blood Group',
         type: 'option',
         index: 8,
-        value: '',
+        value: ''
       },
       {
         title: 'Country',
         type: 'option',
         index: 9,
-        value: '',
+        value: ''
       },
       {
         title: 'Date Of Birth',
         type: 'date',
         index: 10,
-        value: '',
+        value: ''
       },
       {
         title: 'Cast',
         type: 'text',
         index: 11,
-        value: '',
+        value: ''
       },
       {
         title: 'Domicile State',
         type: 'text',
         index: 12,
-        value: '',
+        value: ''
       },
       {
         title: 'Religion',
         type: 'text',
         index: 13,
-        value: '',
-      },
-    ],
+        value: ''
+      }
+    ]
   },
   {
     secTitle: 'Ed-Level Details',
@@ -109,33 +109,33 @@ const data = [
         title: '10th or Equivalent',
         type: 'title',
         index: 1,
-        value: '',
+        value: ''
       },
       {
         title: '12th or Equivalent',
         type: 'title',
         index: 2,
-        value: '',
+        value: ''
       },
       {
         title: 'Last Semester',
         type: 'title',
         index: 3,
-        value: '',
+        value: ''
       },
       {
         title: 'Under Graduate',
         type: 'title',
         index: 4,
-        value: '',
+        value: ''
       },
       {
         title: 'Post Graduate',
         type: 'title',
         index: 5,
-        value: '',
-      },
-    ],
+        value: ''
+      }
+    ]
   },
   {
     secTitle: 'Education/School Details',
@@ -144,51 +144,51 @@ const data = [
         title: 'School/College Name',
         type: 'text',
         index: 1,
-        value: '',
+        value: ''
       },
       {
         title: 'Board/University',
         type: 'option/text',
         index: 2,
-        value: '',
+        value: ''
       },
       {
         title: 'Seat Number/ID',
         type: 'text',
         index: 3,
-        value: '',
+        value: ''
       },
       {
         title: 'Marks Obtained',
         type: 'number',
         index: 4,
-        value: '',
+        value: ''
       },
       {
         title: 'Marks Out Of',
         type: 'number',
         index: 5,
-        value: '',
+        value: ''
       },
       {
         title: 'Percentage',
         type: 'number',
         index: 6,
-        value: '',
+        value: ''
       },
       {
         title: 'Result Status',
         type: 'option',
         index: 7,
-        value: '',
+        value: ''
       },
       {
         title: "Institute's Address",
         type: 'text',
         index: 8,
-        value: '',
-      },
-    ],
+        value: ''
+      }
+    ]
   },
   {
     secTitle: 'Entrance Exam',
@@ -197,33 +197,33 @@ const data = [
         title: 'Name',
         type: 'text',
         index: 1,
-        value: '',
+        value: ''
       },
       {
         title: 'Date Of Appearance',
         type: 'date',
         index: 2,
-        value: '',
+        value: ''
       },
       {
         title: 'Registration Number',
         type: 'text',
         index: 3,
-        value: '',
+        value: ''
       },
       {
         title: 'Marks/Rank',
         type: 'number',
         index: 4,
-        value: '',
+        value: ''
       },
       {
         title: 'Status',
         type: 'option',
         index: 5,
-        value: '',
-      },
-    ],
+        value: ''
+      }
+    ]
   },
   {
     secTitle: 'Document Uploads',
@@ -232,39 +232,39 @@ const data = [
         title: 'Passport Size Photo',
         type: 'image',
         index: 1,
-        value: '',
+        value: ''
       },
       {
         title: 'AADHAR CARD',
         type: 'image',
         index: 2,
-        value: '',
+        value: ''
       },
       {
         title: 'LC/TC',
         type: 'pdf',
         index: 3,
-        value: '',
+        value: ''
       },
       {
         title: 'Marksheet/Result',
         type: 'pdf',
         index: 4,
-        value: '',
+        value: ''
       },
       {
         title: 'Domicile Certificate',
         type: 'pdf',
         index: 5,
-        value: '',
+        value: ''
       },
       {
         title: 'ADDRESS PROOF',
         type: 'pdf',
         index: 5,
-        value: '',
-      },
-    ],
+        value: ''
+      }
+    ]
   },
   {
     secTitle: 'Payment Modes',
@@ -273,32 +273,32 @@ const data = [
         title: 'Net Banking',
         type: 'process',
         index: 1,
-        value: '',
+        value: ''
       },
       {
         title: 'Credit/Debit Card',
         type: 'process',
         index: 2,
-        value: '',
+        value: ''
       },
       {
         title: 'UPI',
         type: 'process',
         index: 3,
-        value: '',
+        value: ''
       },
       {
         title: 'Offline',
         type: 'process',
         index: 4,
-        value: '',
-      },
-    ],
-  },
-];
+        value: ''
+      }
+    ]
+  }
+]
 
-export default function SelectFields({ GlobalLabels, setGlobalLabels }:selectFieldsPropType) {
-  const [AutoSelected, setAutoSelected] = useState(false);
+export default function SelectFields ({ GlobalLabels, setGlobalLabels }: selectFieldsPropType): JSX.Element {
+  const [AutoSelected, setAutoSelected] = useState(false)
   return (
     <>
       <Row style={{ marginTop: '1.1em' }}>
@@ -323,7 +323,7 @@ export default function SelectFields({ GlobalLabels, setGlobalLabels }:selectFie
             style={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
+              justifyContent: 'center'
             }}
           >
             <Typography.Text strong>FROM</Typography.Text>
@@ -333,15 +333,15 @@ export default function SelectFields({ GlobalLabels, setGlobalLabels }:selectFie
             style={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
+              justifyContent: 'center'
             }}
           >
             <Typography.Text strong>TO</Typography.Text>
           </Col>
         </Row>
       )}
-      {AutoSelected !== true
-        && data.map((item, index) => (
+      {!AutoSelected &&
+        data.map((item, index) => (
           <SelectFieldSection
             Labels={item.Labels}
             title={item.secTitle}
@@ -351,5 +351,5 @@ export default function SelectFields({ GlobalLabels, setGlobalLabels }:selectFie
           />
         ))}
     </>
-  );
+  )
 }

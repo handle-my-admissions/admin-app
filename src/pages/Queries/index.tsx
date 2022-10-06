@@ -1,24 +1,23 @@
-import './style.css';
+import './style.css'
 import {
-  Layout, Row, Tabs, Col, Typography, Skeleton,
-} from 'antd';
+  Layout, Row, Tabs, Col, Typography, Skeleton
+} from 'antd'
 // import { BrowserRouter } from 'react-router-dom';
-import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
-import { QueryCard } from '../../containers';
-import { UserContext } from '../../contexts/user';
+import React, { useState, useEffect, useContext } from 'react'
+import axios from 'axios'
+import { QueryCard } from '../../containers'
+import { UserContext } from '../../contexts/user'
 
+type querieListStateType = Array<{
+  email: string
+  queries: any[]
+}>
 
-type querieListStateType ={
-  email: string,
-  queries:any[]
-}[]
-
-let tabkey = 0;
-const { TabPane } = Tabs;
-export default function Queries() {
-  const [QueryList, setQueryList] = useState<querieListStateType>();
-  const { user } = useContext(UserContext);
+let tabkey = 0
+const { TabPane } = Tabs
+export default function Queries (): JSX.Element {
+  const [QueryList, setQueryList] = useState<querieListStateType>()
+  const { user } = useContext(UserContext)
   // eslint-disable-next-line no-unused-vars
   useEffect(() => {
     // TODO : here the data is of specific student , we need all queries. make new lambda /API EP
@@ -26,19 +25,19 @@ export default function Queries() {
       method: 'get',
       url: 'https://d4z2bizxa5.execute-api.us-east-1.amazonaws.com/s1/queries/',
       headers: {
-        Authorization: `Bearer ${user.idToken.jwtToken}`,
+        Authorization: `Bearer ${user.idToken.jwtToken}`
 
-      },
-    };
+      }
+    }
 
     axios(config)
       .then((response) => {
-        setQueryList(response.data.body);
+        setQueryList(response.data.body)
       })
       .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+        console.log(error)
+      })
+  }, [])
 
   return (
     <div className="myquery">
@@ -60,9 +59,10 @@ export default function Queries() {
                       QueryList !== undefined
                         ? QueryList.map(
                           ({ email, queries }) => queries?.map(
-                            (data) => <QueryCard queryCarddata={data} email={email} />,
-                          ),
-                        ) : <Skeleton active />
+                            (data, index) => <QueryCard queryCarddata={data} email={email} key={index} />
+                          )
+                        )
+                        : <Skeleton active />
 }
                   </Col>
                 </Row>
@@ -71,20 +71,21 @@ export default function Queries() {
               <TabPane tab="Solved" key={tabkey++}>
                 <Row>
                   <Col span={24}>
-                    {QueryList !== undefined
-                       && QueryList.map(
-                         ({ email, queries }) => queries?.map(
-                           (data) => (
-                             data.querystatus.status
-                               ? (
+                    {QueryList?.map(
+                      ({ email, queries }) => queries?.map(
+                        (data, index) => (
+                          data.querystatus.status
+                            ? (
                                  <QueryCard
                                    queryCarddata={data}
                                    email={email}
+                                   key={index}
                                  />
-                               ) : <></>
-                           ),
-                         ),
-                       )}
+                              )
+                            : <></>
+                        )
+                      )
+                    )}
                   </Col>
                 </Row>
               </TabPane>
@@ -92,14 +93,15 @@ export default function Queries() {
               <TabPane tab="Pending" key={tabkey++}>
                 <Row>
                   <Col span={24}>
-                    {QueryList !== undefined && QueryList.map(
-                      ({ email, queries }) => queries?.map((data) => (!data.querystatus.status ? (
+                    {QueryList?.map(
+                      ({ email, queries }) => queries?.map((data) => (!data.querystatus.status
+                        ? (
                         <QueryCard
                           queryCarddata={data}
                           email={email}
                         />
-                      )
-                        : <></>)),
+                          )
+                        : <></>))
                     )}
                   </Col>
                 </Row>
@@ -109,5 +111,5 @@ export default function Queries() {
         </Row>
       </Layout>
     </div>
-  );
+  )
 }

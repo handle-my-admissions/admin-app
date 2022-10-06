@@ -1,45 +1,45 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react'
 import {
-  Button, Form, Input, message, Modal, Select,
-} from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
-import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
-import UserPool from '../../UserPool';
-import './style.css';
-import { UserContext } from '../../contexts/user';
+  Button, Form, Input, message, Modal, Select
+} from 'antd'
+import { Link, useNavigate } from 'react-router-dom'
+import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons'
+import UserPool from '../../UserPool'
+import './style.css'
+import { UserContext } from '../../contexts/user'
 
-export default function SignUp() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const navigate = useNavigate();
-  const { user } = useContext(UserContext);
+export default function SignUp (): JSX.Element {
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const navigate = useNavigate()
+  const { user } = useContext(UserContext)
 
   /**
    * If user exists, redirect to the homepage.
    */
   useEffect(() => {
     if (user) {
-      navigate('/adm/');
+      navigate('/adm/')
     }
-  }, []);
+  }, [])
 
   /**
   * It shows a modal when the user clicks on the button.
   * Modal, is used to show the confirmation of the registration.
   */
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+  const showModal = (): void => {
+    setIsModalVisible(true)
+  }
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-    navigate('/login');
-  };
+  const handleOk = (): void => {
+    setIsModalVisible(false)
+    navigate('/login')
+  }
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+  const handleCancel = (): void => {
+    setIsModalVisible(false)
+  }
 
-  const onFinish = (values:any) => {
+  const onFinish = (values: any): any => {
     /**
      * Creates a new user in the user pool.
      */
@@ -48,41 +48,41 @@ export default function SignUp() {
      * if password and confirm password are not equal, show an error message.
      */
     if (values.password !== values.confirmPassword) {
-      message.error('Password does not match');
-      return;
+      message.error('Password does not match')
+      return
     }
 
     // /!undefined == True.
 
-    if (!values) return;
+    if (!values) return
 
     /**
      * Attributes are attached to the user identity.
      */
-    const attributeList:any[] = [];
+    const attributeList: any[] = [];
     ['name', 'email', 'address', 'gender'].forEach((attribute) => {
       attributeList.push({
         Name: attribute,
-        Value: values[attribute],
-      });
-    });
+        Value: values[attribute]
+      })
+    })
 
-    const phoneNumber = `+91${values.phone_number}`;
+    const phoneNumber = `+91${values.phone_number}`
     attributeList.push({
       Name: 'phone_number',
-      Value: phoneNumber,
-    });
+      Value: phoneNumber
+    })
 
     UserPool.signUp(values.email, values.password, attributeList, [], (err, result) => {
-      if (err) {
-        message.error(err.message);
+      if (err != null) {
+        message.error(err.message)
       }
-      if (!err && result) {
-        message.success('Sign up successfully!');
-        showModal();
+      if ((err == null) && (result != null)) {
+        message.success('Sign up successfully!')
+        showModal()
       }
-    });
-  };
+    })
+  }
 
   return (
     <>
@@ -99,7 +99,7 @@ export default function SignUp() {
           <Form
             name="normal_login"
             initialValues={{
-              remember: true,
+              remember: true
             }}
             onFinish={onFinish}
           >
@@ -108,12 +108,12 @@ export default function SignUp() {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your email!',
+                  message: 'Please input your email!'
                 },
                 {
                   type: 'email',
-                  message: 'Please input a valid email!',
-                },
+                  message: 'Please input a valid email!'
+                }
               ]}
             >
               <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="Email" />
@@ -124,16 +124,16 @@ export default function SignUp() {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your name!',
+                  message: 'Please input your name!'
                 },
                 {
                   type: 'string',
-                  message: 'Must not contain numbers and special characters',
+                  message: 'Must not contain numbers and special characters'
                 },
                 {
                   min: 3,
-                  message: 'Name must be at least 3 characters',
-                },
+                  message: 'Name must be at least 3 characters'
+                }
               ]}
             >
               <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Name" />
@@ -145,12 +145,12 @@ export default function SignUp() {
                 [
                   {
                     required: true,
-                    message: 'please select you gender!',
+                    message: 'please select you gender!'
                   },
                   {
                     enum: ['Male', 'Female', 'Other'],
-                    message: 'Please select from given options',
-                  },
+                    message: 'Please select from given options'
+                  }
                 ]
               }
             >
@@ -166,12 +166,12 @@ export default function SignUp() {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your phone number!',
+                  message: 'Please input your phone number!'
                 },
                 {
                   len: 10,
-                  message: 'Phone number must be 10 digits',
-                },
+                  message: 'Phone number must be 10 digits'
+                }
               ]}
             >
               <Input
@@ -188,16 +188,16 @@ export default function SignUp() {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your Password!',
+                  message: 'Please input your Password!'
                 },
                 {
                   min: 8,
-                  message: 'Password must be at least 8 characters',
+                  message: 'Password must be at least 8 characters'
                 },
                 {
                   pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                  message: 'At least 1 uppercase, 1 lowercase, 1 number & 1 special character',
-                },
+                  message: 'At least 1 uppercase, 1 lowercase, 1 number & 1 special character'
+                }
               ]}
             >
               <Input
@@ -211,16 +211,16 @@ export default function SignUp() {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your Password!',
+                  message: 'Please input your Password!'
                 },
                 {
                   min: 8,
-                  message: 'Password must be at least 8 characters',
+                  message: 'Password must be at least 8 characters'
                 },
                 {
                   pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                  message: 'Password must contain at least one uppercase, one lowercase, one number and one special character',
-                },
+                  message: 'Password must contain at least one uppercase, one lowercase, one number and one special character'
+                }
               ]}
             >
               <Input
@@ -244,5 +244,5 @@ export default function SignUp() {
         </div>
       </section>
     </>
-  );
+  )
 }
