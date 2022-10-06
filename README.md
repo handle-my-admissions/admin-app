@@ -1,7 +1,7 @@
 ![Handle My Admission](https://raw.githubusercontent.com/admission-portal/.github/main/admin-app.gif)
 
 <p align="center">
-<img src="https://img.shields.io/github/license/tejas-ladhani/devdost" />
+<img src="https://img.shields.io/github/license/admission-portal/admin-app" />
 <img src="https://img.shields.io/badge/Author-Tejas_Ladhani-yellow" />
 </p>
 
