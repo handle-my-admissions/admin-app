@@ -1,28 +1,28 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
-  Typography, Row, Col, Card, Divider,
-} from 'antd';
+  Typography, Row, Col, Card, Divider
+} from 'antd'
 import {
-  CheckSquareOutlined, EditOutlined, CloseSquareOutlined, DeleteOutlined,
-} from '@ant-design/icons';
-import './style.css';
+  CheckSquareOutlined, EditOutlined, CloseSquareOutlined, DeleteOutlined
+} from '@ant-design/icons'
+import './style.css'
 
-type queryCardPropsType = {
-  queryCarddata:any|{}
-  email:string
+interface queryCardPropsType {
+  queryCarddata: any | {}
+  email: string
 }
 
-export default function QueryCard({ queryCarddata, email }:queryCardPropsType) {
-  const [Reply, setReply] = useState(false);
-  const [ReplyTextData, setReplyTextData] = useState('');
+export default function QueryCard ({ queryCarddata, email }: queryCardPropsType): JSX.Element {
+  const [Reply, setReply] = useState(false)
+  const [ReplyTextData, setReplyTextData] = useState('')
 
-  const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
     // setReplyText([...ReplyText,ReplyTextData])
-    setReplyTextData('');
+    setReplyTextData('')
     // !API CALL HERE
-  };
+  }
   return (
     <div className="querycard">
       <Card size="small">
@@ -64,18 +64,20 @@ export default function QueryCard({ queryCarddata, email }:queryCardPropsType) {
             </Typography.Text>
           </Col>
           <Col md={4}>
-            {queryCarddata.querystatus.tag === 'Solved' ? (
+            {queryCarddata.querystatus.tag === 'Solved'
+              ? (
               <>
                 Unresolve :
                 <CloseSquareOutlined />
               </>
-            ) : (
+                )
+              : (
               <>
                 Resolve :
                 {' '}
                 <CheckSquareOutlined />
               </>
-            )}
+                )}
           </Col>
 
           <Col md={2}>
@@ -91,8 +93,8 @@ export default function QueryCard({ queryCarddata, email }:queryCardPropsType) {
           </Col>
         </Row>
 
-        {Reply
-          && (
+        {Reply &&
+          (
           <Row>
             <Col span={24}>
               <Divider />
@@ -140,5 +142,5 @@ export default function QueryCard({ queryCarddata, email }:queryCardPropsType) {
         </Row> */}
       </Card>
     </div>
-  );
+  )
 }

@@ -1,31 +1,29 @@
-import './App.css';
+import './App.css'
 import {
-  BrowserRouter, Navigate, Route, Routes,
-} from 'react-router-dom';
-import { Applications, CalendarPage, Dashboard, Landing, Login, Queries, SignUp, SingleApplication } from './pages';
-import { UserContext, UserContextProvider } from './contexts/user';
-import { Layout } from 'antd';
-import { AppHeader, AppSider } from './components';
+  BrowserRouter, Navigate, Route, Routes
+} from 'react-router-dom'
+import { Applications, CalendarPage, Dashboard, Landing, Login, Queries, SignUp, SingleApplication } from './pages'
+import { UserContextProvider } from './contexts/user'
+import { Layout } from 'antd'
+import { AppHeader, AppSider } from './components'
 import {
-  ProfileOutlined, PieChartOutlined, CalendarOutlined, QuestionOutlined, PaperClipOutlined,
-} from '@ant-design/icons';
-import { PrivateRoute } from './utils/PrivateRoute';
-import { useContext } from 'react';
-import Notices from './pages/Notices';
+  ProfileOutlined, PieChartOutlined, CalendarOutlined, QuestionOutlined, PaperClipOutlined
+} from '@ant-design/icons'
+import { PrivateRoute } from './utils/PrivateRoute'
+import React from 'react'
+import Notices from './pages/Notices'
 
+const { Content } = Layout
 
-const { Content } = Layout;
-
-function App() {
+function App (): JSX.Element {
   const siderData = [
     { title: 'Dashboard', linkTo: '/adm/', icon: <PieChartOutlined /> },
     { title: 'Applications', linkTo: '/adm/applications', icon: <ProfileOutlined /> },
     { title: 'Calendar', linkTo: '/adm/calendar', icon: <CalendarOutlined /> },
     { title: 'Queries', linkTo: '/adm/queries', icon: <QuestionOutlined /> },
-    { title: 'Notices', linkTo: '/adm/notices', icon: <PaperClipOutlined /> },
-  ];
+    { title: 'Notices', linkTo: '/adm/notices', icon: <PaperClipOutlined /> }
+  ]
 
-  const { user } = useContext(UserContext);
   return (
     <BrowserRouter basename='/ap-admin'>
       <UserContextProvider>
@@ -84,10 +82,9 @@ function App() {
           </Layout>
         </Layout>
 
-
       </UserContextProvider>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

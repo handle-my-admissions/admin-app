@@ -1,18 +1,18 @@
-import React from 'react';
-import { Col, Typography } from 'antd';
-import { DownTrend, UpTrend } from '..';
-import LineChart from '../../utils/charts/LineChart';
-import './style.css';
+import React from 'react'
+import { Col, Typography } from 'antd'
+import { DownTrend, UpTrend } from '..'
+import LineChart from '../../utils/charts/LineChart'
+import './style.css'
 
-type dashboardCardContainerPropType = {
-  title: string,
-  value: string,
+interface dashboardCardContainerPropType {
+  title: string
+  value: string
   data: number[]
 }
-export default function DashboardCard({value}:{value:dashboardCardContainerPropType}) {
-  const { data } = value;
-  const isDown = data[data.length - 1] < data[data.length - 2];
-  
+export default function DashboardCard ({ value }: { value: dashboardCardContainerPropType }): JSX.Element {
+  const { data } = value
+  const isDown = data[data.length - 1] < data[data.length - 2]
+
   return (
     <Col md={8} lg={8} sm={24}>
       <div className="Main__Top__card shadow ">
@@ -41,5 +41,5 @@ export default function DashboardCard({value}:{value:dashboardCardContainerPropT
         </div>
       </div>
     </Col>
-  );
+  )
 }

@@ -7,7 +7,7 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it059@charusat.edu.in',
     address: 'New York No. 1 Lake Park',
-    marks: 'Not Submitted',
+    marks: 'Not Submitted'
   },
   {
     key: '2',
@@ -17,7 +17,7 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it059@charusat.edu.in',
     address: 'London No. 1 Lake Park',
-    marks: '87',
+    marks: '87'
   },
   {
     key: '3',
@@ -27,7 +27,7 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it068@charusat.edu.in',
     address: 'London No. 1 Lake Park',
-    marks: '91',
+    marks: '91'
   },
   {
     key: '4',
@@ -37,7 +37,7 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it095@charusat.edu.in',
     address: 'London No. 1 Lake Park',
-    marks: '81',
+    marks: '81'
   },
   {
     key: '5',
@@ -47,7 +47,7 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it0120@charusat.edu.in',
     address: 'London No. 1 Lake Park',
-    marks: '71',
+    marks: '71'
   },
   {
     key: '6',
@@ -57,7 +57,7 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it077@charusat.edu.in',
     address: 'Sidney No. 1 Lake Park',
-    marks: '82',
+    marks: '82'
   },
   {
     key: '7',
@@ -67,7 +67,7 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it041@charusat.edu.in',
     address: 'Sidney No. 1 Lake Park',
-    marks: '68',
+    marks: '68'
   },
   {
     key: '8',
@@ -77,7 +77,7 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it024@charusat.edu.in',
     address: 'Sidney No. 1 Lake Park',
-    marks: '82',
+    marks: '82'
   },
   {
     key: '9',
@@ -87,7 +87,7 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it086@charusat.edu.in',
     address: 'Sidney No. 1 Lake Park',
-    marks: 'Not Submitted',
+    marks: 'Not Submitted'
   },
   {
     key: '10',
@@ -97,7 +97,7 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it092@charusat.edu.in',
     address: 'Sidney No. 1 Lake Park',
-    marks: '88',
+    marks: '88'
   },
   {
     key: '11',
@@ -107,9 +107,9 @@ export const customTableData = [
     institute: 'CSPIT',
     email: '19it051@charusat.edu.in',
     address: 'London No. 2 Lake Park',
-    marks: '90',
-  },
-];
+    marks: '90'
+  }
+]
 
 export const customTableColumnsData = [
   {
@@ -117,45 +117,45 @@ export const customTableColumnsData = [
     dataIndex: 'applicationid',
     key: 'applicationid',
     responsive: ['md'],
-    sorter: (a:any, b:any) => a.address.length - b.address.length,
-    sortDirections: ['descend', 'ascend'],
+    sorter: (a: any, b: any) => a.address.length - b.address.length,
+    sortDirections: ['descend', 'ascend']
   },
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    responsive: ['md'],
+    responsive: ['md']
   },
   {
     title: 'Branch',
     dataIndex: 'branch',
     key: 'branch',
-    responsive: ['md'],
+    responsive: ['md']
   },
   {
     title: 'Institute',
     dataIndex: 'institute',
     key: 'institute',
-    responsive: ['md'],
+    responsive: ['md']
   },
   {
     title: 'Email',
     dataIndex: 'email',
     key: 'email',
     responsive: ['md'],
-    sorter: (a:any, b:any) => a.address.length - b.address.length,
-    sortDirections: ['descend', 'ascend'],
+    sorter: (a: any, b: any) => a.address.length - b.address.length,
+    sortDirections: ['descend', 'ascend']
   },
   {
     title: 'Marks',
     dataIndex: 'marks',
     key: 'marks',
     responsive: ['md'],
-    sorter: (a:any, b:any) => a.address.length - b.address.length,
-    sortDirections: ['descend', 'ascend'],
-  },
+    sorter: (a: any, b: any) => a.address.length - b.address.length,
+    sortDirections: ['descend', 'ascend']
+  }
 
-];
+]
 // export const customTableColumns = [
 //     {
 //         title: 'Name',

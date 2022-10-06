@@ -1,12 +1,12 @@
-import './style.css';
-import React from 'react';
-import { Row, Col, Typography } from 'antd';
-import { DashboardCardsContainer } from '../../containers';
-import { CustomTable, PageHeader } from '../../components';
-import PieChart from '../../utils/charts/PieChart';
-import { customTableData, customTableColumnsData } from './data';
+import './style.css'
+import React from 'react'
+import { Row, Col, Typography } from 'antd'
+import { DashboardCardsContainer } from '../../containers'
+import { CustomTable, PageHeader } from '../../components'
+import PieChart from '../../utils/charts/PieChart'
+import { customTableData, customTableColumnsData } from './data'
 
-export default function Dashboard() {
+export default function Dashboard (): JSX.Element {
   return (
     <div className="Dashboard">
       <PageHeader title="Dashboard" />
@@ -30,5 +30,5 @@ export default function Dashboard() {
         </Col>
       </Row>
     </div>
-  );
+  )
 }

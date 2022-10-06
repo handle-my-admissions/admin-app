@@ -1,13 +1,13 @@
-import { Tabs } from 'antd';
-import React from 'react';
-import './style.css';
-import { GenerateNotice, ViewNotices } from '../../containers';
+import { Tabs } from 'antd'
+import React from 'react'
+import './style.css'
+import { GenerateNotice, ViewNotices } from '../../containers'
 
-const { TabPane } = Tabs;
+const { TabPane } = Tabs
 
-export default function Notices() {
+export default function Notices (): JSX.Element {
   // just to remount the viewNotice Component , changing in the generateNotice component
-  const [tempState, settempState] = React.useState(0);
+  const [tempState, settempState] = React.useState(0)
 
   return (
     <div className="Notices">
@@ -20,5 +20,5 @@ export default function Notices() {
         </TabPane>
       </Tabs>
     </div>
-  );
+  )
 }

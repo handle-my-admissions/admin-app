@@ -1,8 +1,9 @@
-import { Doughnut } from 'react-chartjs-2';
-import { Chart as ChartJS, registerables } from 'chart.js';
+import React from 'react'
+import { Doughnut } from 'react-chartjs-2'
+import { Chart as ChartJS, registerables } from 'chart.js'
 
-ChartJS.register(...registerables);
-function PieChart() {
+ChartJS.register(...registerables)
+function PieChart (): JSX.Element {
   return (
     <Doughnut
       data={{
@@ -11,8 +12,8 @@ function PieChart() {
           {
             label: 'no of applicants',
             data: [45, 120, 10],
-            backgroundColor: ['rgba(178, 255, 255, 0.52)', 'rgba(12, 175, 255, 0.52)', 'rgba(0, 118, 206, 0.52)'],
-          }],
+            backgroundColor: ['rgba(178, 255, 255, 0.52)', 'rgba(12, 175, 255, 0.52)', 'rgba(0, 118, 206, 0.52)']
+          }]
 
       }}
       options={{
@@ -27,16 +28,16 @@ function PieChart() {
               color: '#000000',
               font: {
                 size: 14,
-                family: 'PoppinsRegular, sans-serif',
-              },
-            },
-          },
+                family: 'PoppinsRegular, sans-serif'
+              }
+            }
+          }
         },
-        maintainAspectRatio: false,
+        maintainAspectRatio: false
       }}
     />
 
-  );
+  )
 }
 
-export default PieChart;
+export default PieChart

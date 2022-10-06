@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { Row, Col } from 'antd';
-import { PageHeader } from '../../components';
-import './style.css';
+import React, { useEffect, useState } from 'react'
+import { Row, Col } from 'antd'
+import { PageHeader } from '../../components'
+import './style.css'
 
-type detailsOfApplicationPropType ={
-  detailsData:any
+interface detailsOfApplicationPropType {
+  detailsData: any
 }
-export default function DetailsOfApplication({ detailsData }:detailsOfApplicationPropType) {
-  const [Details, setDetails] = useState(detailsData);
-  const [ClickedOnEdit, setClickedOnEdit] = useState(true);
+export default function DetailsOfApplication ({ detailsData }: detailsOfApplicationPropType): JSX.Element {
+  const [Details, setDetails] = useState(detailsData)
+  const [ClickedOnEdit, setClickedOnEdit] = useState(true)
   useEffect(() => {
     // effect
-    setDetails(detailsData);
-  }, []);
+    setDetails(detailsData)
+  }, [])
 
-  const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
+  }
 
   return (
     <div className="DetailsOfApplication">
@@ -130,13 +130,13 @@ export default function DetailsOfApplication({ detailsData }:detailsOfApplicatio
 
             {!ClickedOnEdit && (
             <div className="Application_btn_container">
-              <input type="button" value="Cancel" onClick={() => { setClickedOnEdit(!ClickedOnEdit); }} />
+              <input type="button" value="Cancel" onClick={() => { setClickedOnEdit(!ClickedOnEdit) }} />
               <input type="submit" value="Save Changes" />
             </div>
             )}
             {ClickedOnEdit && (
             <div className="Application_btn_container">
-              <input type="button" value="Edit" onClick={() => { setClickedOnEdit(!ClickedOnEdit); }} />
+              <input type="button" value="Edit" onClick={() => { setClickedOnEdit(!ClickedOnEdit) }} />
             </div>
             )}
 
@@ -145,5 +145,5 @@ export default function DetailsOfApplication({ detailsData }:detailsOfApplicatio
 
       </Row>
     </div>
-  );
+  )
 }

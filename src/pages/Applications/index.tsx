@@ -1,11 +1,11 @@
-import React from 'react';
-import { Tabs } from 'antd';
-import './style.css';
-import { GenerateApplication, ViewApplications } from '../../containers';
+import React from 'react'
+import { Tabs } from 'antd'
+import './style.css'
+import { GenerateApplication, ViewApplications } from '../../containers'
 
-const { TabPane } = Tabs;
+const { TabPane } = Tabs
 
-export default function Applications() {
+export default function Applications (): JSX.Element {
   return (
     <div className="Applications">
       {/* <PageHeader title="Applications" /> */}
@@ -18,5 +18,5 @@ export default function Applications() {
         </TabPane>
       </Tabs>
     </div>
-  );
+  )
 }

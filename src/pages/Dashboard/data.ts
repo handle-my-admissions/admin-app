@@ -5,7 +5,7 @@ export const customTableData = [
     branch: 'IT',
     institute: 'DEPSTAR',
     feesPaid: 'Not Paid',
-    address: 'New York No. 1 Lake Park',
+    address: 'New York No. 1 Lake Park'
   },
   {
     key: '2',
@@ -13,7 +13,7 @@ export const customTableData = [
     branch: 'CE',
     institute: 'CSPIT',
     feesPaid: 'Paid',
-    address: 'London No. 1 Lake Park',
+    address: 'London No. 1 Lake Park'
   },
   {
     key: '3',
@@ -21,7 +21,7 @@ export const customTableData = [
     branch: 'CE',
     institute: 'CSPIT',
     feesPaid: 'Paid',
-    address: 'London No. 1 Lake Park',
+    address: 'London No. 1 Lake Park'
   },
   {
     key: '4',
@@ -29,7 +29,7 @@ export const customTableData = [
     branch: 'CE',
     institute: 'CSPIT',
     feesPaid: 'Paid',
-    address: 'London No. 1 Lake Park',
+    address: 'London No. 1 Lake Park'
   },
   {
     key: '5',
@@ -37,7 +37,7 @@ export const customTableData = [
     branch: 'CE',
     institute: 'CSPIT',
     feesPaid: 'Paid',
-    address: 'London No. 1 Lake Park',
+    address: 'London No. 1 Lake Park'
   },
   {
     key: '6',
@@ -45,7 +45,7 @@ export const customTableData = [
     branch: 'ME',
     institute: 'CSPIT',
     feesPaid: 'Paid',
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sidney No. 1 Lake Park'
   },
   {
     key: '7',
@@ -53,7 +53,7 @@ export const customTableData = [
     branch: 'ME',
     institute: 'CSPIT',
     feesPaid: 'Paid',
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sidney No. 1 Lake Park'
   },
   {
     key: '8',
@@ -61,7 +61,7 @@ export const customTableData = [
     branch: 'ME',
     institute: 'CSPIT',
     feesPaid: 'Paid',
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sidney No. 1 Lake Park'
   },
   {
     key: '9',
@@ -69,7 +69,7 @@ export const customTableData = [
     branch: 'ME',
     institute: 'CSPIT',
     feesPaid: 'Paid',
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sidney No. 1 Lake Park'
   },
   {
     key: '10',
@@ -77,7 +77,7 @@ export const customTableData = [
     branch: 'ME',
     institute: 'CSPIT',
     feesPaid: 'Paid',
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sidney No. 1 Lake Park'
   },
   {
     key: '11',
@@ -85,38 +85,38 @@ export const customTableData = [
     branch: 'ME',
     institute: 'CSPIT',
     feesPaid: 'Not Paid',
-    address: 'London No. 2 Lake Park',
-  },
-];
+    address: 'London No. 2 Lake Park'
+  }
+]
 
 export const customTableColumnsData = [
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    responsive: ['md'],
+    responsive: ['md']
   },
   {
     title: 'Branch',
     dataIndex: 'branch',
     key: 'branch',
-    responsive: ['md'],
+    responsive: ['md']
   },
   {
     title: 'Institute',
     dataIndex: 'institute',
     key: 'institute',
-    responsive: ['md'],
+    responsive: ['md']
   },
   {
     title: 'Fees Paid',
     dataIndex: 'feesPaid',
     key: 'feesPaid',
     responsive: ['md'],
-    sorter: (a:any, b:any) => a.address.length - b.address.length,
-    sortDirections: ['descend', 'ascend'],
-  },
-];
+    sorter: (a: any, b: any) => a.address.length - b.address.length,
+    sortDirections: ['descend', 'ascend']
+  }
+]
 // export const customTableColumns = [
 //     {
 //         title: 'Name',
