@@ -131,6 +131,9 @@ Inside /src:
 </details>
 
 
+## ✌ Code Of Conduct
+We like to follow a code of conduct and expect the same from you. please refer: [CODE OF CONDUCT](/Code%20of%20Conduct.md)
+
 ## 📜 LICENSE
 
 [MIT License](/LICENSE.txt)
