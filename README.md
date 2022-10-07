@@ -9,6 +9,8 @@
 
 ## 🎊 admin-app
 admin-app is an application that severs "admin" users of Handle My Admission.
+
+visit portal : [admin-app](https://handle-my-admissions-admin.web.app/ap-admin)
 ## 💥 Introduction to Handle My Admission
 
 Handle My Admission is a solution which provides an end-to-end platform for institutions to manage their admission process , as well as it acts as an on-stop solution for high school students to manage their college applications.
